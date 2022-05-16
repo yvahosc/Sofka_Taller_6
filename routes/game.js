@@ -35,11 +35,15 @@ router.get('/:id/winner', function(req, res, next) {
   const data = Game.find({"id": {$eq: req.params.id}}, {winner: 1,
      _id: 0});
   data.then(result => {
-    if (result[0].winner.name == null || result[0].winner.id == null){
+    if (result.length == 0) {
+      res.render('error2',
+          {message: 'No se encontró juego para este id, verifique por favor.' });
+    }else if (result[0].winner.name == null || result[0].winner.id == null){
       res.render('error2',
           {message: 'No se encontró ganador para este juego, inícielo' +
                 ' primero.' });
-    } else{
+    }
+    else{
       game2 = result[0];
       res.render('winner',
           { title: req.params.id, gamer: game2 });
