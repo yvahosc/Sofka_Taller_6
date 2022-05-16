@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const mongoDB = 'mongodb://localhost/Ejercicio';
 
 /**
- * Asignación de variables para la definiciónd de las rutas que 
- * se utilizarán en la aplicación.
+ * Asignación de variables para la definición de las rutas que se
+ * utilizarán en la aplicación.
  */
 const indexRouter = require('./routes/index');
 const createGameRouter = require('./routes/createGame');

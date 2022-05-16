@@ -5,9 +5,9 @@ const {stdout} = require("nodemon/lib/config/defaults");
 
 
 /**
- * Creación de la ruta GET que visualiza la información de un
- *  juego ya registrado en la base de datos y del cual se 
- * conoce el parametro id y es enviado por medio de la url.
+ * Creación de la ruta GET que visualiza la información de un juego ya
+ * registrado en la base de datos y del cual se conoce el parametro id y es
+ * enviado por medio de la url.
  */
 router.get('/:id', function(req, res, next) {
   const data = Game.find({"id": {$eq: req.params.id}}, 
@@ -27,9 +27,9 @@ router.get('/:id', function(req, res, next) {
 });
 
 /**
- * Creación de la ruta GET que visualiza la información del
- * ganador de un juego ya registrado en la base de datos y del 
- * cual se conoce el parametro id y es enviado por medio de la url.
+ * Creación de la ruta GET que visualiza la información del ganador de un
+ * juego ya registrado en la base de datos y del cual se conoce el parámetro
+ * id y es enviado por medio de la url.
  */
 router.get('/:id/winner', function(req, res, next) {
   const data = Game.find({"id": {$eq: req.params.id}}, {winner: 1,

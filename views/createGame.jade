@@ -6,14 +6,19 @@ block content
   h2= "Ingrese la información del juego a crear:"
   form(action="http://localhost:8080/createGame" method="POST")
     p Id juego:
-      input(type="text" name="id" placeholder="Ingrese el id del juego" id="id")
+      input(type="text" name="id" placeholder="Ingrese el id del juego"
+        id="id")
     p Type juego:
-      input(type="text" name="type" placeholder="Ingrese el tipo del juego" id="type")
+      input(type="text" name="type" placeholder="Ingrese el tipo del juego"
+        id="type")
     p Jugador 1:
-      input(type="text" name="gamers" placeholder="Ingrese el jugador 1" id="gamer1")
+      input(type="text" name="gamers" placeholder="Ingrese el jugador 1"
+        id="gamer1")
     p Jugador 2:
-      input(type="text" name="gamers" placeholder="Ingrese el jugador 2" id="gamer2")
+      input(type="text" name="gamers" placeholder="Ingrese el jugador 2"
+        id="gamer2")
     p Jugador 3:
-      input(type="text" name="gamers" placeholder="Ingrese el jugador 3" id="gamer3")
+      input(type="text" name="gamers" placeholder="Ingrese el jugador 3"
+        id="gamer3")
     input(type="submit" value="Crear")
     p= message

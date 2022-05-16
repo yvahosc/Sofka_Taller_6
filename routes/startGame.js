@@ -3,10 +3,9 @@ var router = express.Router();
 const Game = require('../models/game.js');
 
 /**
- * Creación de la ruta con método POST que tiene 
- * como objetivo el ingreso de la información por parte 
- * del usuario para la inicialización del juego y el anexo
- * de las apuestas para cada jugador.
+ * Creación de la ruta con método POST que tiene como objetivo el ingreso de
+ * la información por parte del usuario para la inicialización del juego y
+ * el anexo de las apuestas para cada jugador.
  */
 router.post('/', function(req, res, next) {
     id = req.body.id;
@@ -14,15 +13,15 @@ router.post('/', function(req, res, next) {
     gamersBet = req.body.gamerBet;
     
     /**
-     * Función para la actualización de las apuestas para cada
-     *  uno de los jugadores en la base de datos a partir de la
-     *  información suministrada por parte del usuarios.
-     * @param {*} gamerList Corresponde a la lista de jugadores 
-     * que están registrados en el juego y a los cuales se les 
-     * realizará la actualización de la apuesta
-     * @returns Booleano que indica que se actualizó de manera 
-     * exitosa en la base de datos la infomración correspondiente
-     * a la apuesta de cada jugador.
+     * Función para la actualización de las apuestas para cada uno de los
+     * jugadores en la base de datos a partir de la información suministrada
+     * por parte del usuarios.
+     * @param {*} gamerList Corresponde a la lista de jugadores que están
+     * registrados en el juego y a los cuales se les realizará la
+     * actualización de la apuesta
+     * @returns Booleano que indica que se actualizó de manera exitosa en la
+     * base de datos la información correspondiente a la apuesta de cada
+     * jugador.
      */
     async function updateGamersBet(gamerList){
         return new Promise(resolve => {
@@ -55,16 +54,15 @@ router.post('/', function(req, res, next) {
     }
     
     /**
-     * Función para la inicialización del juego y su información 
-     * en la base de datos a partir de la información de las apuestas 
-     * suministrada por parte del usuario.
-     * @param {*} id Corresponde al valor ingresado por el usuario como
-     *  id del juego el cual se quiere iniciar.
+     * Función para la inicialización del juego y su información en la base
+     * de datos a partir de la información de las apuestas suministrada por
+     * parte del usuario.
+     * @param {*} id Corresponde al valor ingresado por el usuario como id
+     * del juego el cual se quiere iniciar.
      * @param {*} type Corresponde al valor asignado por el usuario como
-     *  tipo del juego el cual se quiere iniciar.
-     * @param {*} gamersBet Corresponde a los valores asignados por el 
-     * usuario como lista de apuestas correspondientes a cada jugador
-     *  del juego 
+     * tipo del juego el cual se quiere iniciar.
+     * @param {*} gamersBet Corresponde a los valores asignados por el
+     * usuario como lista de apuestas correspondientes a cada jugador del juego
      */
     const startGame = async function (id, type, gamersBet) {
         const data = Game.find({"id": {$eq: id}}, {gamers:1,});
@@ -112,10 +110,10 @@ router.post('/', function(req, res, next) {
     }
 
     /**
-     * Llamado a la ejecucuión de la función para la inicialización del juego
-     * dentro de la cual se llama a la función que hace la actualización de
-     * las apuestas de los jugadores de dicho juego, todo a partir de la información 
-     * suministrada por el usuario.
+     * Llamado a la ejecucuión de la función para la inicialización del
+     * juego dentro de la cual se llama a la función que hace la
+     * actualización de las apuestas de los jugadores de dicho juego, todo a
+     * partir de la información suministrada por el usuario.
      */
     startGame(id, type, gamersBet);
 });
