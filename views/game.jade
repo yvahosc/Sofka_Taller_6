@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    h1= 'Juego: ' + title
+    p= 'Gamers'
+    ul
+        each nombre in gamer.gamers
+            li= nombre.name + '. id: ' + nombre.id
+    p= 'Winner'
+        ul= gamer.winner.name + '. id: ' + gamer.winner.id
+
+    p= 'In progress: ' + gamer.inProgress
+    p= 'JSON: ' + gamer
+
